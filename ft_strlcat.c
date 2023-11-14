@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 16:00:19 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/14 12:48:21 by gostr            ###   ########.fr       */
+/*   Created: 2023/11/14 15:11:53 by gostr             #+#    #+#             */
+/*   Updated: 2023/11/14 15:26:20 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void *restrict destination, const void *restrict source, size_t size)
+size_t ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {
 	int	i;
-	char *d = ((char *) destination)[i];
-	char *s = ((char *) source)[i];
+	int	length;
 
 	i = 0;
+	length = ft_strlen(dst);
 	
-	while (i < size)
+	while(i < dstsize)
 	{
-		d = s;
+		dst[length] = src[i];
 		i++;
+		length++;
 	}
+	 while (i < dstsize)
+    {
+        dst[i] = '\0';
+        i++;
+    }
+	return (length + ft_strlen(src));
 }
