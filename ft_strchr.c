@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:43:43 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/14 16:27:17 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/15 11:45:12 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,14 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	unsigned int	i;
 	
 	i = 0;
-	
-	while (s[i])
-	{
-		if (s[i] == c)
-		{
-			return (&((char *)s)[i]);
-		}
+	while(s[i] && s[i] != c)
 		i++;
-	}
-	if (c == '\0')
-		return (&((char *)s)[i]);
-	return (NULL);
+	if (s[i] == '\0')
+		return (NULL);
+	return (&((char *)s)[i]);
 }
 /*
 #include <string.h>
@@ -37,10 +30,8 @@ int	main(int arc, char **argv)
 {
 	if (arc < 1)
 		return (0);
-	char *k = ft_strchr(argv[1], 'c');
-	char *l = strchr(argv[2], 'c');
-	printf("fonction : %s", k);
-	printf("\nfonction : %s", l);
+	printf("le caractère : c est à la position : %p", ft_strchr(argv[1], 'c'));
+	printf("\nle caractère : c est à la position : %p", strchr(argv[1], 'c'));
 	return (0);
 	}
 */
