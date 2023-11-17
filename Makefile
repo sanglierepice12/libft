@@ -6,7 +6,7 @@
 #    By: gostr <gostr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 11:46:35 by gostr             #+#    #+#              #
-#    Updated: 2023/11/08 12:07:07 by gostr            ###   ########.fr        #
+#    Updated: 2023/11/17 10:26:33 by gostr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ SRCFOL	=	atoi.c\
 			ft_tolower.c\
 			strchr.c\
 			memset.c\
-			main.c
 			
 SRC		=	$(wildcard $(SRCFOL)*.c)
 

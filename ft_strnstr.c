@@ -11,33 +11,42 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-int	ft_cmp(char haystack, char needle)
+
+int	ft_cmp(char *haystack, char *needle)
 {
-	if (haystack == needle)
-		return (0);
-	return (1);
+	size_t	i;
+
+	i = 0;
+	while (needle[i])
+	{
+		if (haystack[i] == needle[i])
+			i++;
+		else 
+			return (1);
+	}
+	return (0);
 }
 
 char	*ft_strnstr(char *haystack, char *needle, size_t len)
 {
+	unsigned int	needle_length;
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	while (haystack[i] && i < len)
+	needle_length = ft_strlen(needle);
+	while (i < len && haystack[i])
 	{
-		j = 0;
-		while (needle[j] && ft_cmp(haystack[i], needle[j]) == 1)
+		while (haystack[i] == needle[i])
 		{
-			j++;
-			if (needle[j] == '\0')
+			if (((i + needle_length) <= len) && ft_cmp(haystack + i, needle) == 0)
 				return (haystack + i);
 			i++;
 		}
+		i++;
 	}
 	return (NULL);
 }
-
+/*
 #include<stdio.h>
 #include<string.h>
 int	main(int argc, char **argv)
@@ -47,4 +56,4 @@ int	main(int argc, char **argv)
 	printf("strnstr : %s", strnstr(argv[1], argv[2], 4));
 	printf("\nstrnstr : %s", ft_strnstr(argv[1], argv[2], 4));
 	return(0);
-}
+}*/
