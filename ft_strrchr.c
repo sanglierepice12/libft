@@ -6,13 +6,11 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:09:12 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/15 12:23:55 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/16 12:31:21 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 char	*ft_strrchr(const char *s, int c)
 {

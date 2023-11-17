@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:11:53 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/14 15:26:20 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/16 13:26:15 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-	int	i;
-	int	length;
+	size_t	i;
+	size_t	length;
 
 	i = 0;
 	length = ft_strlen(dst);

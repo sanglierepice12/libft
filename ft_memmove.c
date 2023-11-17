@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:16:11 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/14 12:54:02 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/16 13:25:08 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	*ft_memmove(void *destination, const void *source, size_t size)
 {
 	char *s = ((char *) source);
 	char *d = ((char *) destination);
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;	
-	if(s < d && s + size > d)
+	if(s < d && s + size > d) // vérification si superposition des chaines
 	{
 		i = size;
 		while (i > 0)
@@ -28,11 +28,11 @@ void	*ft_memmove(void *destination, const void *source, size_t size)
 			i--;
 		}
 	}
-	else
+	else // copie car pas de superposition --> optimisation
 		ft_memcpy(destination, source, size);
 	return (destination);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 int	main(int argc, char **argv)
@@ -46,4 +46,4 @@ int	main(int argc, char **argv)
 	printf("destination : %s", argv[1]);
 	printf("\ndestination : %s", argv[3]);
 	return(0);
-}
+}*/

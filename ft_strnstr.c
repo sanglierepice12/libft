@@ -3,35 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gostr <gsuter@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 12:51:43 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/08 13:16:46 by gostr            ###   ########.fr       */
+/*   Created: 2023/11/16 13:38:14 by gostr             #+#    #+#             */
+/*   Updated: 2023/11/16 13:38:35 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-
-int	ft_comp(const char *haystack, const char *needle)
+int	ft_cmp(char haystack, char needle)
 {
-	
-}
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
-{
-	int	i;
-	
-	i = 0;
-	while (i <= len && haystack[i])
-	{
-		
-	}
-}
-
-int	main(int arc, char **argv)
-{
-	if (arc < 1)
+	if (haystack == needle)
 		return (0);
-	printf("%s", ft_strnstr(argv[1], argv[2], 10));
+	return (1);
+}
+
+char	*ft_strnstr(char *haystack, char *needle, size_t len)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (haystack[i] && i < len)
+	{
+		j = 0;
+		while (needle[j] && ft_cmp(haystack[i], needle[j]) == 1)
+		{
+			j++;
+			if (needle[j] == '\0')
+				return (haystack + i);
+			i++;
+		}
+	}
+	return (NULL);
+}
+
+#include<stdio.h>
+#include<string.h>
+int	main(int argc, char **argv)
+{
+	if (argc < 1)
+		return 0;
+	printf("strnstr : %s", strnstr(argv[1], argv[2], 4));
+	printf("\nstrnstr : %s", ft_strnstr(argv[1], argv[2], 4));
+	return(0);
 }
