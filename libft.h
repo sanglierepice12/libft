@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:43:35 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/16 15:34:28 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/17 11:11:41 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 
+int	ft_atoi(const char *str); // convertir char en int
 int ft_isalpha(int c); // est-ce que le caractère est alphabetique ?
 int ft_isdigit(int nb); // est-ce que le caractère est un chiffre ?
 int ft_isalnum(int c); // est-ce que le caractère est un chiffre ou un alpha ?

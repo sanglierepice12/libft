@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:16:11 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/16 13:25:08 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/17 16:56:15 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void	*ft_memmove(void *destination, const void *source, size_t size)
 {
-	char *s = ((char *) source);
-	char *d = ((char *) destination);
+	char	*s;
+	char	*d;
 	size_t	i;
 
-	i = 0;	
+	s = ((char *) source);
+	d = ((char *) destination);
+	i = 0;
 	if(s < d && s + size > d) // vérification si superposition des chaines
 	{
 		i = size;

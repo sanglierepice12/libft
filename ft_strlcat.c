@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 15:11:53 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/16 13:26:15 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/17 10:33:41 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ size_t ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
         dst[i] = '\0';
         i++;
     }
-	return (length + ft_strlen(src));
+	return (length + ft_strlen((char *)src));
 }
