@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:27:22 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/16 13:27:05 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/20 12:23:01 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
-	
+
 	i = 0;
 	while ((s1[i] || s2[i]) && i < n)
 	{

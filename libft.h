@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:43:35 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/20 11:27:07 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/20 12:25:38 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,8 @@ void	ft_bzero(void *s, size_t n);// remet toutes la string à 0
 // malloc using functions
 char	*ft_strdup(const char *s1);// duplique dans une autre string et revoie un pointeur (allocation de mémoire)
 void	*ft_calloc(size_t count, size_t size); //alloue dynamiquement de la mémoire en fonction du nombre d'octets demandé
+// Fonctions supplémentaires
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
