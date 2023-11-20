@@ -6,13 +6,13 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 09:46:10 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/20 10:34:53 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/20 10:48:16 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	char	*dest;
 	size_t	i;

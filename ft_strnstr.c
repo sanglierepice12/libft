@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:38:14 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/17 16:53:36 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/20 10:56:48 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,16 @@ char	*ft_strnstr(char *haystack, char *needle, size_t len)
 {
 	size_t			i;
 	unsigned int	needle_length;
+	unsigned int	comp;
 
 	i = 0;
+	comp = ft_cmp(haystack + i, needle);
 	needle_length = ft_strlen(needle);
 	while (i < len && haystack[i])
 	{
 		while (haystack[i] == needle[i])
 		{
-			if (((i + needle_length) <= len) &&
-				ft_cmp(haystack + i, needle) == 0)
+			if (((i + needle_length) <= len) && comp == 0)
 				return (haystack + i);
 			i++;
 		}

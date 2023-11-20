@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 12:09:12 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/16 12:31:21 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/20 11:05:49 by gostr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	unsigned int	i;
-	
+
 	i = ft_strlen((char *)s);
 	while (s[i] != c)
 		i--;
