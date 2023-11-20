@@ -3,21 +3,24 @@ CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
 NAME = libft.a
+EXEC = main.out
+SRC =	$(wildcard *.c)
+OBJDIR =	ofiles/
+OBJS =	$(addprefix $(OBJDIR), $(SRC:.c=.o))
 
-SRC = $(wildcard *.c)
-OBJDIR = ofiles/
-OBJS = $(addprefix $(OBJDIR), $(SRC:.c=.o))
+INC =	-I./
 
-INC = -Iinclude/
+all:	$(NAME) $(EXEC)
 
-all: $(NAME)
-
-$(NAME): $(OBJS)
+$(NAME):	$(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
 $(OBJDIR)%.o: %.c | $(OBJDIR)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+$(EXEC):	$(OBJS)
+	$(CC) $(CFLAGS) $(INC) -o $(EXEC) $(OBJS)
 
 $(OBJDIR):
 	mkdir -p $(OBJDIR)
