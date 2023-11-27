@@ -21,7 +21,7 @@ void	*ft_memmove(void *destination, const void *source, size_t size)
 	s = ((char *) source);
 	d = ((char *) destination);
 	i = 0;
-	if(s < d && s + size > d) // vérification si superposition des chaines
+	if (s < d && s + size > d)
 	{
 		i = size;
 		while (i > 0)
@@ -30,7 +30,7 @@ void	*ft_memmove(void *destination, const void *source, size_t size)
 			i--;
 		}
 	}
-	else // copie car pas de superposition --> optimisation
+	else
 		ft_memcpy(destination, source, size);
 	return (destination);
 }

@@ -14,10 +14,10 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	j;
+	size_t			i;
+	size_t			j;
 	unsigned int	slen;
-	char	*dest;
+	char			*dest;
 
 	slen = ft_strlen(s);
 	if (start > slen)
@@ -38,14 +38,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	dest[len] = '\0';
 	return (dest);
 }
-
-/*
-#include <stdio.h>
-
-int	main(int argc, char **argv)
-{
-	if(argc <2)
-		return (0);
-	printf("valeur ft_retour : %s", ft_substr(argv[1], atoi(argv[2]), atoi(argv[3])));
-	return(0);
-}*/

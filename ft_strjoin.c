@@ -14,10 +14,10 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	j;
-	unsigned	int len;
-	char	*dest;
+	size_t			i;
+	size_t			j;
+	unsigned int	len;
+	char			*dest;
 
 	len = ft_strlen(s1) + ft_strlen(s2);
 	dest = (char *)malloc(sizeof(char) * (len + 1));

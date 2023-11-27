@@ -1,36 +1,57 @@
-CC = cc
-CFLAGS = -Wall -Werror -Wextra
-RM = rm -f
+SRCS    =    ft_atoi.c        \
+            ft_bzero.c        \
+            ft_calloc.c        \
+            ft_isalnum.c    \
+            ft_isalpha.c    \
+            ft_isascii.c    \
+            ft_isdigit.c    \
+            ft_isprint.c    \
+            ft_memchr.c        \
+            ft_memcmp.c        \
+            ft_memcpy.c        \
+            ft_memmove.c    \
+            ft_memset.c        \
+            ft_split.c        \
+            ft_strchr.c        \
+            ft_strdup.c        \
+            ft_strjoin.c    \
+            ft_strlcat.c    \
+            ft_strlcpy.c    \
+            ft_strlen.c        \
+            ft_strncmp.c    \
+            ft_strnstr.c    \
+            ft_strrchr.c    \
+            ft_strtrim.c    \
+            ft_substr.c        \
+            ft_tolower.c    \
+            ft_toupper.c
 
-NAME = libft.a
-EXEC = main.out
-SRC =	$(wildcard *.c)
-OBJDIR =	ofiles/
-OBJS =	$(addprefix $(OBJDIR), $(SRC:.c=.o))
+OBJS	=	${SRCS:.c=.o}
 
-INC =	-I./
+HEADER	=	libft.h
 
-all:	$(NAME) $(EXEC)
+NAME	=	libft.a
 
-$(NAME):	$(OBJS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+CC	=	cc
 
-$(OBJDIR)%.o: %.c | $(OBJDIR)
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+AR	=	ar -rc
 
-$(EXEC):	$(OBJS)
-	$(CC) $(CFLAGS) $(INC) -o $(EXEC) $(OBJS)
+FLAGS	=	-Wall -Wextra -Werror
 
-$(OBJDIR):
-	mkdir -p $(OBJDIR)
+all	:	${NAME}
 
-clean:
-	$(RM) -r $(OBJDIR)
+%.o	:	%.c ${HEADER}
+	${CC} ${FLAGS} -c $< -o $@
 
-fclean: clean
-	$(RM) $(NAME)
+${NAME}	:	${OBJS} Makefile
+	${AR} ${NAME} ${OBJS}
 
-re: fclean all
+clean	:
+	rm -f ${OBJS} ${B_OBJS}
 
-.PHONY: all clean fclean re
+fclean	:	clean
+	rm -f ${NAME} ${B_OBJS}
+
+re	:	fclean all
+
+.PHONY	:	all clean fclean re bonus
