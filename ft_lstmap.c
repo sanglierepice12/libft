@@ -29,7 +29,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		{
 			del(temp);
 			ft_lstclear(&head, del);
-			free(head);
+			return (head);
 		}
 		ft_lstadd_back(&head, new);
 		lst = lst->next;
