@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gsuter <gostr@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 12:43:32 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/28 10:32:16 by gsuter           ###   ########.fr       */
+/*   Created: 2023/11/29 11:01:24 by gsuter            #+#    #+#             */
+/*   Updated: 2023/11/29 11:43:26 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (c > 96 && c < 123)
-		c -= 32;
-	return (c);
+	unsigned int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
 }

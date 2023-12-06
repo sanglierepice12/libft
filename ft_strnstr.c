@@ -6,43 +6,28 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:38:14 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/20 10:56:48 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/28 10:32:16 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_cmp(char *haystack, char *needle)
-{
-	size_t	i;
-
-	i = 0;
-	while (needle[i])
-	{
-		if (haystack[i] == needle[i])
-			i++;
-		else
-			return (1);
-	}
-	return (0);
-}
-
-char	*ft_strnstr(char *haystack, char *needle, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t			i;
-	unsigned int	needle_length;
-	unsigned int	comp;
+	size_t			j;
 
 	i = 0;
-	comp = ft_cmp(haystack + i, needle);
-	needle_length = ft_strlen(needle);
-	while (i < len && haystack[i])
+	if (!little[0])
+		return ((char *)big);
+	while (i < len && big[i])
 	{
-		while (haystack[i] == needle[i])
+		j = 0;
+		while (big[i + j] == little[j] && i + j < len)
 		{
-			if (((i + needle_length) <= len) && comp == 0)
-				return (haystack + i);
-			i++;
+			if (little[j + 1] == '\0')
+				return ((char *)big + i);
+			j++;
 		}
 		i++;
 	}
@@ -55,7 +40,7 @@ int	main(int argc, char **argv)
 {
 	if (argc < 1)
 		return 0;
-	printf("strnstr : %s", strnstr(argv[1], argv[2], 4));
-	printf("\nstrnstr : %s", ft_strnstr(argv[1], argv[2], 4));
+	//printf("strnstr : %s", strnstr(argv[1], argv[2], 4));
+	printf("\nstrnstr : %s", ft_strnstr(argv[1], argv[2], atoi(argv[3])));
 	return(0);
 }*/

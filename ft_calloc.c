@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:34:56 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/20 11:33:36 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/28 10:32:16 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*dest;
 
-	dest = malloc(count * size);
+	dest = malloc(size * count);
 	if (!dest)
 		return (NULL);
-	ft_bzero(dest, count);
+	ft_bzero(dest, size * count);
 	return (dest);
 }
 /*

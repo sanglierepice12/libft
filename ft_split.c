@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gsuter <gostr@student.42.fr>                +#+  +:+       +#+       */
+/*   By: gsuter <gsuter@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 13:56:21 by gsuter             #+#    #+#            */
-/*   Updated: 2023/11/21 10:05:15 by gsuter            ###   ########.fr      */
+/*   Created: 2023/11/28 12:30:46 by gsuter            #+#    #+#             */
+/*   Updated: 2023/11/28 12:36:34 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,20 @@ static char	*ft_dup(char const *s, char c, size_t *j)
 	return (dest);
 }
 
+static char	**ft_clear(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	count_words;
@@ -76,7 +90,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	count_words = ft_countwords(s, c);
-	dest = malloc(sizeof(char) * (count_words + 1));
+	dest = malloc(sizeof(char *) * (count_words + 1));
 	if (!dest)
 		return (NULL);
 	while (s[j])
@@ -84,6 +98,8 @@ char	**ft_split(char const *s, char c)
 		if (s[j] != c)
 		{
 			dest[i] = ft_dup(s, c, &j);
+			if (!dest[i])
+				return (ft_clear(dest));
 			i++;
 		}
 		else
@@ -92,16 +108,27 @@ char	**ft_split(char const *s, char c)
 	dest[i] = 0;
 	return (dest);
 }
-/*
-#include <string.h>
+
+/*#include <string.h>
+#include <stdio.h>
 int	main(void)
 {
     char	**dest;
 	size_t	i;
-    dest = ft_split(" hello ca va ",' ');
+    dest = ft_split("lorem\n"
+					"ipsum\n"
+					"dolor\n"
+					"sit\n"
+					"amet,\n"
+					"consectetur\n"
+					"adipiscing\n"
+					"elit.\n"
+					"Sed\n"
+					"non\n"
+					"risus.\n"
+					"Suspendisse",'\n');
 	i = 0;
 	//printf("len : %zu \n", strlen("hello ca va"));
-	printf("dest[0] = %c\n", dest[0][0]);
 	while (dest[i])
 	{
 		printf("dest = %s\n", dest[i]);

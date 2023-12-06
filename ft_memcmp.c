@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:09:28 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/20 11:05:09 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/28 10:32:16 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	str1 = ((const unsigned char *)s1);
 	str2 = ((const unsigned char *)s2);
-	while (str1[i] || (str2[i] && i < n))
+	while (i < n)
 	{
 		if (str1[i] != str2[i])
 			return (str1[i] - str2[i]);

@@ -6,7 +6,7 @@
 /*   By: gostr <gostr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 12:43:43 by gostr             #+#    #+#             */
-/*   Updated: 2023/11/20 11:06:18 by gostr            ###   ########.fr       */
+/*   Updated: 2023/11/28 10:32:16 by gsuter           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*ft_strchr(const char *s, int c)
 	unsigned int	i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (s[i] && s[i] != (unsigned char)c)
 		i++;
-	if (s[i] == '\0')
+	if (s[i] != (unsigned char)c)
 		return (NULL);
 	return (&((char *)s)[i]);
 }
