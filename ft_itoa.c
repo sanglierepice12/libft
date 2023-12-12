@@ -28,7 +28,7 @@ static char	*ft_numchar(long int result, size_t minus, char *dest, size_t len)
 	return (dest);
 }
 
-static char	*ft_mallouk(char *dest, unsigned int nb, unsigned int *len, int m)
+static char	*ft_lenalloc(char *dest, unsigned int nb, unsigned int *len, int m)
 {
 	while (nb > 0)
 	{
@@ -52,14 +52,14 @@ char	*ft_itoa(int nb)
 		return (ft_strdup("0"));
 	if (nb < 0)
 	{
-		dest = ft_mallouk(dest, nb * -1, &len, 1);
+		dest = ft_lenalloc(dest, nb * -1, &len, 1);
 		if (!dest)
 			return (NULL);
 		dest = ft_numchar(nb * -1, 1, dest, len);
 	}
 	else
 	{
-		dest = ft_mallouk(dest, nb, &len, 0);
+		dest = ft_lenalloc(dest, nb, &len, 0);
 		if (!dest)
 			return (NULL);
 		dest = ft_numchar(nb, 0, dest, len);

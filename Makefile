@@ -59,7 +59,7 @@ FLAGS	=	-Wall -Wextra -Werror
 
 all	:	${NAME}
 
-%.o	:	%.c ${HEADER}
+%.o	:	%.c ${HEADER} Makefile
 	${CC} ${FLAGS} -c $< -o $@
 
 ${NAME}	:	${OBJS} Makefile
